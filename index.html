@@ -17,7 +17,26 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: 600px;
-      background-attachment: fixed;
+      background-attachment: scroll; /* düzeltilmiş */
+      position: relative; /* pseudo-element için gerekli */
+    }
+
+    /* ARKA PLAN LOGO GÖLGELİ */
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("logo.png");
+      background-repeat: no-repeat;
+      background-position: center 250px;
+      background-size: 500px;
+      opacity: 0.12;
+      filter: drop-shadow(0 0 30px rgba(0,0,0,0.3));
+      pointer-events: none;
+      z-index: -1;
     }
 
     /* HEADER */
@@ -31,7 +50,7 @@
     }
 
     .logo {
-      height: 70px;
+      height: 55px; /* küçültüldü */
       opacity: 0.95;
     }
 
@@ -110,47 +129,41 @@
       font-size: 14px;
     }
 
-    /* MOBILE */
+    /* MOBİL */
+    .mobile-only-logo {
+      display: none;
+      text-align: center;
+      padding: 25px 0 10px;
+    }
+
+    .mobile-only-logo img {
+      width: 180px;
+      opacity: 0.95;
+    }
+
     @media (max-width: 768px) {
-      .logo {
+      /* ÜSTTEKİ SAĞ & SOL LOGOLARI KAPAT */
+      .top-header .logo {
         display: none;
+      }
+
+      /* TEK LOGOYU GÖSTER */
+      .mobile-only-logo {
+        display: block;
+      }
+
+      /* ARKA PLAN LOGOSU MOBİLDE DE DENGELİ OLSUN */
+      body::after {
+        background-size: 350px;
+        background-position: center 220px;
       }
 
       .profile {
         flex-direction: column;
         text-align: center;
       }
-      .mobile-only-logo {
-  display: none;
-  text-align: center;
-  padding: 25px 0 10px;
-}
-
-.mobile-only-logo img {
-  width: 180px;
-  opacity: 0.95;
-}
-
-/* MOBİL */
-@media (max-width: 768px) {
-
-  /* ÜSTTEKİ SAĞ & SOL LOGOLARI KAPAT */
-  .top-header .logo {
-    display: none;
-  }
-
-  /* TEK LOGOYU GÖSTER */
-  .mobile-only-logo {
-    display: block;
-  }
-
-  /* ARKA PLAN LOGOSU MOBİLDE DE GÖRÜNSÜN */
-  body {
-    background-size: 350px;
-    background-position: center 200px;
-  }
-}
     }
+
   </style>
 </head>
 
@@ -159,9 +172,10 @@
   <!-- HEADER -->
   <header class="top-header">
     <img src="logo.png" class="logo" alt="Yeni Ufuk Partisi Logosu">
+    
     <div class="mobile-only-logo">
-  <img src="logo.png" alt="Yeni Ufuk Partisi Logosu">
-</div>
+      <img src="logo.png" alt="Yeni Ufuk Partisi Logosu">
+    </div>
 
     <div class="header-center">
       <h1>Yeni Ufuk Partisi (YUP)</h1>
@@ -241,7 +255,7 @@
         “Samsun’u özgür fikirlerle, temiz enerjiyle ve katılımcı yönetimle yeniden inşa ediyoruz.”
       </div>
     </div>
-
+   
     <div class="section">
       <h2>6. Alt Mesajlar</h2>
       <ul>
