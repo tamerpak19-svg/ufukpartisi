@@ -11,32 +11,26 @@
       font-family: Arial, Helvetica, sans-serif;
       color: #222;
       line-height: 1.6;
-
       background-color: #f4f6f8;
-      background-image: url("logo.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 600px;
-      background-attachment: scroll; /* düzeltilmiş */
-      position: relative; /* pseudo-element için gerekli */
+      position: relative;
     }
 
-    /* ARKA PLAN LOGO GÖLGELİ */
-    body::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    /* ARKA PLAN LOGO */
+    .bg-logo {
+      position: fixed;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
       background-image: url("logo.png");
+      background-size: contain;
       background-repeat: no-repeat;
-      background-position: center 250px;
-      background-size: 500px;
       opacity: 0.12;
       filter: drop-shadow(0 0 30px rgba(0,0,0,0.3));
-      pointer-events: none;
       z-index: -1;
+      pointer-events: none;
+      transition: transform 0.1s linear;
     }
 
     /* HEADER */
@@ -50,7 +44,7 @@
     }
 
     .logo {
-      height: 55px; /* küçültüldü */
+      height: 60px; /* biraz küçültüldü */
       opacity: 0.95;
     }
 
@@ -129,7 +123,7 @@
       font-size: 14px;
     }
 
-    /* MOBİL */
+    /* MOBILE */
     .mobile-only-logo {
       display: none;
       text-align: center;
@@ -152,10 +146,11 @@
         display: block;
       }
 
-      /* ARKA PLAN LOGOSU MOBİLDE DE DENGELİ OLSUN */
-      body::after {
-        background-size: 350px;
-        background-position: center 220px;
+      /* ARKA PLAN LOGOSU MOBİLDE DE UYUM */
+      .bg-logo {
+        width: 350px;
+        height: 350px;
+        top: 150px;
       }
 
       .profile {
@@ -163,31 +158,28 @@
         text-align: center;
       }
     }
-
   </style>
 </head>
 
 <body>
+  <!-- ARKA PLAN LOGO -->
+  <div class="bg-logo"></div>
 
   <!-- HEADER -->
   <header class="top-header">
     <img src="logo.png" class="logo" alt="Yeni Ufuk Partisi Logosu">
-    
     <div class="mobile-only-logo">
       <img src="logo.png" alt="Yeni Ufuk Partisi Logosu">
     </div>
-
     <div class="header-center">
       <h1>Yeni Ufuk Partisi (YUP)</h1>
       <p>Samsun Büyükşehir Belediye Başkanlığı – Seçim Brifi</p>
     </div>
-
     <img src="logo.png" class="logo" alt="Yeni Ufuk Partisi Logosu">
   </header>
 
   <!-- CONTENT -->
   <div class="container">
-
     <div class="section">
       <h2>1. Parti Kimliği ve İdeolojisi</h2>
       <p>
@@ -201,7 +193,6 @@
         siyasette çoğulculuğu, toplumsal yaşamda ise farklı kimliklerin
         bir arada yaşamasını savunur.
       </p>
-
       <div class="badge">
         Parti Sloganı: “Yarın İçin Yeni Bir Ufuk!”
       </div>
@@ -209,34 +200,23 @@
 
     <div class="section">
       <h2>2. Aday Profili</h2>
-
       <div class="profile">
         <img src="aday.jpg" alt="Dr. Selin Karaca">
-
         <div>
           <p><strong>Ad Soyad:</strong> Dr. Selin Karaca</p>
           <p><strong>Yaş:</strong> 39</p>
           <p><strong>Meslek:</strong> Şehir Plancısı / Akademisyen</p>
           <p><strong>Eğitim:</strong> ODTÜ Şehir ve Bölge Planlama (YL & Doktora)</p>
           <p><strong>Siyasi Geçmiş:</strong> Sivil toplumda aktif, ilk kez siyasette.</p>
-          <p>
-            <strong>Kişisel Özellikler:</strong> Yenilikçi, analitik düşünen,
-            şehircilik vizyonu güçlü, uzlaşmacı.
-          </p>
+          <p><strong>Kişisel Özellikler:</strong> Yenilikçi, analitik düşünen, şehircilik vizyonu güçlü, uzlaşmacı.</p>
         </div>
       </div>
     </div>
 
     <div class="section">
       <h2>3. Kampanya Amacı</h2>
-      <p>
-        Yeni Ufuk Partisi, “Samsun’u Akıl ve Özgürlükle Yeniden Tasarlıyoruz”
-        vizyonuyla Samsun Büyükşehir Belediye Başkanlığına aday olmuştur.
-      </p>
-      <p>
-        Kampanyanın temel amacı; değişim, katılım ve yenilik mesajlarını
-        seçmene güçlü biçimde iletmektir.
-      </p>
+      <p>Yeni Ufuk Partisi, “Samsun’u Akıl ve Özgürlükle Yeniden Tasarlıyoruz” vizyonuyla Samsun Büyükşehir Belediye Başkanlığına aday olmuştur.</p>
+      <p>Kampanyanın temel amacı; değişim, katılım ve yenilik mesajlarını seçmene güçlü biçimde iletmektir.</p>
     </div>
 
     <div class="section">
@@ -255,7 +235,7 @@
         “Samsun’u özgür fikirlerle, temiz enerjiyle ve katılımcı yönetimle yeniden inşa ediyoruz.”
       </div>
     </div>
-   
+
     <div class="section">
       <h2>6. Alt Mesajlar</h2>
       <ul>
@@ -264,12 +244,18 @@
         <li>Kadın istihdamı ve girişimcilik fonları</li>
       </ul>
     </div>
-
   </div>
 
   <footer>
     © 2025 Yeni Ufuk Partisi | Samsun
   </footer>
 
+  <script>
+    const logo = document.querySelector('.bg-logo');
+    window.addEventListener('scroll', () => {
+      let y = window.scrollY * 0.3; // hareket hızı
+      logo.style.transform = `translate(-50%, ${y}px)`;
+    });
+  </script>
 </body>
 </html>
