@@ -11,13 +11,29 @@
       font-family: Arial, Helvetica, sans-serif;
       color: #222;
       line-height: 1.6;
-
       background-color: #f4f6f8;
-      background-image: url("logo.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 600px;
-      background-attachment: fixed;
+      position: relative;
+    }
+
+    /* ARKA PLAN LOGO - GÖLGE */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("logo.png") center / 550px no-repeat;
+      filter: blur(28px);
+      opacity: 0.18;
+      z-index: -2;
+    }
+
+    /* ARKA PLAN LOGO - NET */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("logo.png") center / 550px no-repeat;
+      opacity: 0.12;
+      z-index: -1;
     }
 
     /* HEADER */
@@ -56,8 +72,8 @@
       max-width: 1000px;
       margin: 30px auto;
       padding: 30px 25px;
-      background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 6px;
+      background-color: rgba(255, 255, 255, 0.96);
+      border-radius: 8px;
     }
 
     .section {
@@ -120,6 +136,11 @@
         flex-direction: column;
         text-align: center;
       }
+
+      body::before,
+      body::after {
+        background-size: 350px;
+      }
     }
   </style>
 </head>
@@ -128,14 +149,14 @@
 
   <!-- HEADER -->
   <header class="top-header">
-    <img src="logo.jpg" class="logo" alt="Yeni Ufuk Partisi Logosu">
+    <img src="logo.png" class="logo" alt="Yeni Ufuk Partisi Logosu">
 
     <div class="header-center">
       <h1>Yeni Ufuk Partisi (YUP)</h1>
       <p>Samsun Büyükşehir Belediye Başkanlığı – Seçim Brifi</p>
     </div>
 
-    <img src="logo.jpg" class="logo" alt="Yeni Ufuk Partisi Logosu">
+    <img src="logo.png" class="logo" alt="Yeni Ufuk Partisi Logosu">
   </header>
 
   <!-- CONTENT -->
@@ -144,15 +165,8 @@
     <div class="section">
       <h2>1. Parti Kimliği ve İdeolojisi</h2>
       <p>
-        Yeni Ufuk Partisi (YUP), Türkiye’nin liberal demokrat değerleri
-        çerçevesinde özgür birey, güçlü yerel yönetim ve katılımcı demokrasi
-        anlayışını yeniden tanımlamayı amaçlayan yeni bir siyasi harekettir.
-      </p>
-      <p>
-        Parti; özgürlük, girişimcilik, çevre duyarlılığı ve yerel kalkınma
-        kavramlarını ön plana çıkarır. Ekonomide serbest girişimi,
-        siyasette çoğulculuğu, toplumsal yaşamda ise farklı kimliklerin
-        bir arada yaşamasını savunur.
+        Yeni Ufuk Partisi (YUP), özgür birey, güçlü yerel yönetim ve katılımcı
+        demokrasi anlayışını merkeze alan liberal demokrat bir siyasi harekettir.
       </p>
 
       <div class="badge">
@@ -170,52 +184,9 @@
           <p><strong>Ad Soyad:</strong> Dr. Selin Karaca</p>
           <p><strong>Yaş:</strong> 39</p>
           <p><strong>Meslek:</strong> Şehir Plancısı / Akademisyen</p>
-          <p><strong>Eğitim:</strong> ODTÜ Şehir ve Bölge Planlama (YL & Doktora)</p>
-          <p><strong>Siyasi Geçmiş:</strong> Sivil toplumda aktif, ilk kez siyasette.</p>
-          <p>
-            <strong>Kişisel Özellikler:</strong> Yenilikçi, analitik düşünen,
-            şehircilik vizyonu güçlü, uzlaşmacı.
-          </p>
+          <p><strong>Eğitim:</strong> ODTÜ Şehir ve Bölge Planlama</p>
         </div>
       </div>
-    </div>
-
-    <div class="section">
-      <h2>3. Kampanya Amacı</h2>
-      <p>
-        Yeni Ufuk Partisi, “Samsun’u Akıl ve Özgürlükle Yeniden Tasarlıyoruz”
-        vizyonuyla Samsun Büyükşehir Belediye Başkanlığına aday olmuştur.
-      </p>
-      <p>
-        Kampanyanın temel amacı; değişim, katılım ve yenilik mesajlarını
-        seçmene güçlü biçimde iletmektir.
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>4. Hedef Kitle</h2>
-      <ul>
-        <li><strong>Gençler (18–30):</strong> Dijitalleşme, yeşil alan, özgürlük</li>
-        <li><strong>Kadınlar:</strong> Güvenli şehir, girişimcilik</li>
-        <li><strong>Esnaf:</strong> Yerel ekonomi, serbest piyasa</li>
-        <li><strong>Kararsız Seçmen:</strong> Hizmet odaklı siyaset</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>5. Ana Mesaj</h2>
-      <div class="badge">
-        “Samsun’u özgür fikirlerle, temiz enerjiyle ve katılımcı yönetimle yeniden inşa ediyoruz.”
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>6. Alt Mesajlar</h2>
-      <ul>
-        <li>Her mahalleye gençlik ve girişimcilik merkezleri</li>
-        <li>Yeşil ulaşım ve akıllı şehir projeleri</li>
-        <li>Kadın istihdamı ve girişimcilik fonları</li>
-      </ul>
     </div>
 
   </div>
