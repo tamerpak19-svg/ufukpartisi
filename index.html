@@ -120,6 +120,36 @@
         flex-direction: column;
         text-align: center;
       }
+      .mobile-only-logo {
+  display: none;
+  text-align: center;
+  padding: 25px 0 10px;
+}
+
+.mobile-only-logo img {
+  width: 180px;
+  opacity: 0.95;
+}
+
+/* MOBİL */
+@media (max-width: 768px) {
+
+  /* ÜSTTEKİ SAĞ & SOL LOGOLARI KAPAT */
+  .top-header .logo {
+    display: none;
+  }
+
+  /* TEK LOGOYU GÖSTER */
+  .mobile-only-logo {
+    display: block;
+  }
+
+  /* ARKA PLAN LOGOSU MOBİLDE DE GÖRÜNSÜN */
+  body {
+    background-size: 350px;
+    background-position: center 200px;
+  }
+}
     }
   </style>
 </head>
@@ -129,6 +159,9 @@
   <!-- HEADER -->
   <header class="top-header">
     <img src="logo.png" class="logo" alt="Yeni Ufuk Partisi Logosu">
+    <div class="mobile-only-logo">
+  <img src="logo.png" alt="Yeni Ufuk Partisi Logosu">
+</div>
 
     <div class="header-center">
       <h1>Yeni Ufuk Partisi (YUP)</h1>
