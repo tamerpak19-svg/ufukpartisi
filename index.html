@@ -251,11 +251,17 @@
   </footer>
 
   <script>
-    const logo = document.querySelector('.bg-logo');
-    window.addEventListener('scroll', () => {
-      let y = window.scrollY * 0.3; // hareket hızı
-      logo.style.transform = `translate(-50%, ${y}px)`;
-    });
-  </script>
+  const logo = document.querySelector('.bg-logo');
+  window.addEventListener('scroll', () => {
+    let y = window.scrollY;
+    
+    // Mobil için daha hızlı hareket
+    if (window.innerWidth <= 768) {
+      logo.style.transform = `translate(-50%, ${y * 0.7}px)`; // hız arttı
+    } else {
+      logo.style.transform = `translate(-50%, ${y * 0.3}px)`; // masaüstü
+    }
+  });
+</script>
 </body>
 </html>
